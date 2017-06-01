@@ -10,7 +10,19 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::group(['middleware' => ['web'],'namespace' => 'Admin','as' => 'Admin::'], function () {
+    Route::any('/', [
+        'as' => 'login',
+        'uses' => 'LoginController@login'
+    ]);
 
-Route::get('/', function () {
-    return view('welcome');
+    Route::any('/doLogin', [
+        'as' => 'doLogin',
+        'uses' => 'LoginController@doLogin'
+    ]);
+
+    Route::get('/logout', [
+        'as' => 'logout',
+        'uses' => 'LoginController@logout'
+    ]);
 });
