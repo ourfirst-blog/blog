@@ -11,18 +11,25 @@
 |
 */
 Route::group(['middleware' => ['web'],'namespace' => 'Admin','as' => 'Admin::'], function () {
-    Route::any('/', [
+    Route::any('/admin/login', [
         'as' => 'login',
         'uses' => 'LoginController@login'
     ]);
 
-    Route::any('/doLogin', [
+    Route::any('/admin/doLogin', [
         'as' => 'doLogin',
         'uses' => 'LoginController@doLogin'
     ]);
 
-    Route::get('/logout', [
+    Route::get('/admin/logout', [
         'as' => 'logout',
         'uses' => 'LoginController@logout'
+    ]);
+});
+
+Route::group(['middleware' => ['web'],'namespace' => 'Admin','as' => 'Admin::'], function () {
+    Route::any('/admin/index', [
+        'as' => 'index',
+        'uses' => 'DashboardController@index'
     ]);
 });
