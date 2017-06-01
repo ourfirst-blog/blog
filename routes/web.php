@@ -10,6 +10,11 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', function(){ 
+    return view('welcome');}
+);
+
+
 Route::group(['middleware' => ['web'],'namespace' => 'Admin','as' => 'Admin::'], function () {
     Route::any('/admin/login', [
         'as' => 'login',
@@ -27,7 +32,7 @@ Route::group(['middleware' => ['web'],'namespace' => 'Admin','as' => 'Admin::'],
     ]);
 });
 
-Route::group(['middleware' => ['web'],'namespace' => 'Admin','as' => 'Admin::'], function () {
+Route::group(['middleware' => ['web','admin'],'namespace' => 'Admin','as' => 'Admin::'], function () {
     Route::any('/admin/index', [
         'as' => 'index',
         'uses' => 'DashboardController@index'

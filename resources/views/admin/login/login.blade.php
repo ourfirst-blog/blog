@@ -2,17 +2,17 @@
 <html lang="zh-CN">
 <head>
     <meta charset="utf-8">
-    <title>备塘路工程App</title>
+    <title>blog</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="author" content="beitang_road_app">
 
-    <link rel="stylesheet" href="{{ assets('/assets/vendors/bootstrap-3.3.0/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('/assets/bootstrap-3.3.0/css/bootstrap.min.css') }}">
         <!--[if lt IE 9]>
-          <script src="{{ assets('/assets/vendors/html5shiv-3.7.3/html5shiv.min.js') }}"></script>
-          <script src="{{ assets('/assets/vendors/respond.js-1.4.2/respond.min.js') }}"></script>
+          <script src="{{ URL::asset('/assets/html5shiv-3.7.3/html5shiv.min.js') }}"></script>
+          <script src="{{ URL::asset('/assets/respond.js-1.4.2/respond.min.js') }}"></script>
         <![endif]-->
-    <script src="{{ assets('/assets/vendors/jquery-1.11.1/jquery.min.js') }}"></script>
-    <script src="{{ assets('/assets/vendors/bootstrap-3.3.0/js/bootstrap.min.js') }}"></script>
+    <script src="{{ URL::asset('/assets/jquery-1.11.1/jquery.min.js') }}"></script>
+    <script src="{{ URL::asset('/assets/bootstrap-3.3.0/js/bootstrap.min.js') }}"></script>
 </head>
 <body>
     <div class="container" id="login-form">
@@ -25,7 +25,7 @@
             <div class="col-xs-4 col-xs-offset-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h5>备塘路工程App 后台管理</h5>
+                        <h5>blog 后台管理</h5>
                     </div>
 
                     <div class="panel-body">
