@@ -13,15 +13,23 @@
 Route::get('/', function(){ 
     return view('welcome');}
 );
+//Home
+Route::group(['middleware' => ['web',],'namespace' => 'Home','as' => 'Home::'], function () {
+    Route::get('/home/index', [
+        'as' => 'index',
+        'uses' => 'HomeController@index'
+    ]);
+});
 
 
-Route::group(['middleware' => ['web'],'namespace' => 'Admin','as' => 'Admin::'], function () {
-    Route::any('/admin/login', [
+//Admin
+Route::group(['middleware' => ['web','system'],'namespace' => 'Admin','as' => 'Admin::'], function () {
+    Route::get('/admin/login', [
         'as' => 'login',
         'uses' => 'LoginController@login'
     ]);
 
-    Route::any('/admin/doLogin', [
+    Route::post('/admin/doLogin', [
         'as' => 'doLogin',
         'uses' => 'LoginController@doLogin'
     ]);
@@ -32,9 +40,17 @@ Route::group(['middleware' => ['web'],'namespace' => 'Admin','as' => 'Admin::'],
     ]);
 });
 
-Route::group(['middleware' => ['web','admin'],'namespace' => 'Admin','as' => 'Admin::'], function () {
-    Route::any('/admin/index', [
+Route::group(['middleware' => ['web','admin','system'],'namespace' => 'Admin','as' => 'Admin::'], function () {
+
+    Route::get('/admin/index', [
         'as' => 'index',
         'uses' => 'DashboardController@index'
     ]);
+
+    Route::get('/admin/category', [
+        'as' => 'category_show',
+        'uses' => 'CategoryController@show'
+    ]);
+
+
 });

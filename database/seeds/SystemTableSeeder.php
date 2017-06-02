@@ -14,6 +14,6 @@ class SystemTableSeeder extends Seeder
         DB::table('system')->insert([
             'key' => 'title',
             'value' => '青春博客系列',
-        ])
+        ]);
     }
 }

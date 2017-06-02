@@ -2,7 +2,7 @@
 <html lang="zh-CN">
     <head>
         <meta charset="utf-8">
-        <title>blog 后台</title>
+       <title>@yield('title')</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="author" content="tencent">
         <link rel="stylesheet" href="{{ URL::asset('/assets/bootstrap-3.3.0/css/bootstrap.min.css') }}">
@@ -15,6 +15,7 @@
         <script src="{{ URL::asset('/assets/bootstrap-3.3.0/js/bootstrap.min.js') }}"></script>
         <script src="{{ URL::asset('/assets/bootstrap-3.3.0/js/jquery.validate.js') }}" type="text/javascript"></script>
         <meta name="csrf-token" content="{{ csrf_token() }}">
+
     </head>
 
     <style media="screen">
@@ -45,7 +46,7 @@
               <li><a href="#">Dashboard</a></li>
               <li><a href="#">Settings</a></li>
               <li><a href="#">Profile</a></li>
-              <li><a href="{{ route('Admin::logout')}}">推出登陆</a></li>
+              <li><a href="{{ route('Admin::logout')}}">退出登陆</a></li>
             </ul>
             <form class="navbar-form navbar-right">
               <input type="text" class="form-control" placeholder="Search...">
@@ -57,26 +58,52 @@
         <div class="row">
           <div class="col-sm-3 col-md-2 sidebar">
             <ul class="nav nav-sidebar">
-              <li class="active"><a href="#">总览 <span class="sr-only">(current)</span></a></li>
-              <li><a href="#">Reports</a></li>
+              <li><a href="{{ route('Admin::index')}}">总览 <span class="sr-only">(current)</span></a></li>
+              <li><a href="#">会员管理</a></li>
               <li><a href="#">Analytics</a></li>
               <li><a href="#">Export</a></li>
             </ul>
             <ul class="nav nav-sidebar">
-              <li><a href="">Nav item</a></li>
+              <li><a href="{{ route('Admin::category_show')}}">分类管理</a></li>
               <li><a href="">Nav item again</a></li>
               <li><a href="">One more nav</a></li>
               <li><a href="">Another nav item</a></li>
               <li><a href="">More navigation</a></li>
             </ul>
             <ul class="nav nav-sidebar">
-              <li><a href="">Nav item again</a></li>
+              <li><a href="">标签管理</a></li>
+              <li><a href="">One more nav</a></li>
+              <li><a href="">Another nav item</a></li>
+            </ul>
+              <ul class="nav nav-sidebar">
+              <li><a href="">文章管理</a></li>
               <li><a href="">One more nav</a></li>
               <li><a href="">Another nav item</a></li>
             </ul>
           </div>  
+          <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
             @yield('content')
+          </div>
         </div>  
       </div>
     </body>
 </html>
+<script type="text/javascript">
+(function(window) {'use strict';
+    function setSidebarActive() {
+        var url = window.location.href;
+        let aMenu = $('.nav-sidebar').find('a[href="' + url + '"]');
+       
+            aMenu.parent().attr('class', 'active');
+            return;
+
+        // let ulMenu = aMenu.parent().parent();
+        // let liMenu = ulMenu.parent();
+        // ulMenu.attr('class', 'active dropdown');
+        // liMenu.attr('class', 'active');
+        // return;
+    }
+
+    setSidebarActive();
+})(window);
+</script>
