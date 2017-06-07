@@ -5,5 +5,7 @@ class Category extends BaseModel
 {
     protected $table = 'category';
 
-    protected $fillable = ['id', 'cate_name'];
+    protected $fillable = 'title';
+
+    protected $primaryKey = 'id';
 }

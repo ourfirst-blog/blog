@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use App\Models\System;
-class System
+class System1
 {
     /**
      * Handle an incoming request.
