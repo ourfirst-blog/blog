@@ -19,7 +19,7 @@
     </head>
 
     <style media="screen">
-   
+
     </style>
     <script type="text/javascript">
         $.ajaxSetup({
@@ -54,7 +54,7 @@
           </div>
         </div>
       </nav>
-      <div class="container-fluid"> 
+      <div class="container-fluid">
         <div class="row">
           <div class="col-sm-3 col-md-2 sidebar">
             <ul class="nav nav-sidebar">
@@ -76,15 +76,16 @@
               <li><a href="">Another nav item</a></li>
             </ul>
               <ul class="nav nav-sidebar">
-              <li><a href="">文章管理</a></li>
-              <li><a href="">One more nav</a></li>
-              <li><a href="">Another nav item</a></li>
+              <li><a href="{{ route('Admin::posts')}}">文章管理</a></li>
+              <li><a href="{{ route('Admin::add_post')}}">增加新文章</a></li>
+              <li><a href="{{ route('Admin::categories')}}">分类管理</a></li>
+              <li><a href="{{ route('Admin::add_category')}}">增加分类</a></li>
             </ul>
-          </div>  
+          </div>
           <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
             @yield('content')
           </div>
-        </div>  
+        </div>
       </div>
     </body>
 </html>
@@ -93,7 +94,7 @@
     function setSidebarActive() {
         var url = window.location.href;
         let aMenu = $('.nav-sidebar').find('a[href="' + url + '"]');
-       
+
             aMenu.parent().attr('class', 'active');
             return;
 
